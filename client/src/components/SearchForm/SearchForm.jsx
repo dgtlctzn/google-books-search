@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchForm = () => {
+const SearchForm = ({input, handleInput}) => {
   return (
     <div className="row">
       <div className="col s12">
@@ -9,7 +9,7 @@ const SearchForm = () => {
           <div className="row">
             <div className="input-field col s6">
               <i className="material-icons prefix">library_books</i>
-              <input id="library_books" type="text" className="validate" />
+              <input id="library_books" type="text" className="validate" value={input} onChange={handleInput}/>
               <label htmlFor="library_books">Title</label>
             </div>
           </div>
