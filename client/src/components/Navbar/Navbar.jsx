@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to="/" class="brand-logo right">
+        <Link to="/" class="brand-logo center">
           Google Books Search
         </Link>
         <ul id="nav-mobile" className="left hide-on-med-and-down">
