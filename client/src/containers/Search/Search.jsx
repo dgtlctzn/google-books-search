@@ -1,18 +1,27 @@
 import React, {useState} from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
+import API from "../../utils/API"
 
 const Search = () => {
 
-    const [input, setInput] = useState("");
+    const [search, setSearch] = useState("");
 
     const handleInput = (e) => {
-        setInput(e.target.value) 
+        setSearch(e.target.value) 
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        API.getBooks(search).then((response) => {
+            console.log(response.data);
+        })
     }
 
 
     return (
         <div className="container">
-            <SearchForm input={input} handleInput={handleInput}/>
+            <SearchForm input={search} handleInput={handleInput} handleSubmit={handleSubmit}/>
         </div>
     );
 };

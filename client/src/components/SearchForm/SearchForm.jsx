@@ -1,11 +1,11 @@
 import React from "react";
 
-const SearchForm = ({input, handleInput}) => {
+const SearchForm = ({input, handleInput, handleSubmit}) => {
   return (
     <div className="row">
       <div className="col s12">
         <h2>Search Books</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-field col s6">
               <i className="material-icons prefix">library_books</i>
