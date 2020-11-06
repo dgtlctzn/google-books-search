@@ -15,7 +15,7 @@ const BooksSchema = new Schema({
   image: {
     type: String,
   },
-  link: {
+  canonicalVolumeLink: {
     type: String,
   },
 });

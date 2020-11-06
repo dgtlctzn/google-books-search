@@ -3,7 +3,7 @@ import "./Card.css";
 
 const Card = ({
   value,
-  imageLinks,
+  image,
   title,
   description,
   authors,
@@ -62,7 +62,8 @@ const Card = ({
       </div>
       <div className="row">
         <div className="col m3">
-          {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
+          {/* {image && <img src={image} alt={title} />} */}
+          <img src={image} alt={title}/>
         </div>
         <div className="col m9">
           {description ? (

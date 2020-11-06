@@ -16,4 +16,10 @@ export default {
       },
     });
   },
+  getSavedBooks: function () {
+    return axios({
+      method: "GET",
+      url: "/api/books",
+    })
+  }
 };

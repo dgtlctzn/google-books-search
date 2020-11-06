@@ -33,7 +33,6 @@ const Search = () => {
       .catch((err) => {
         console.log(err);
       });
-    // console.log(id.authors);
   };
 
   return (
@@ -48,6 +47,7 @@ const Search = () => {
           key={book.id} value={book.selfLink}
           {...book.volumeInfo}
           handleSaveButton={handleSaveButton}
+          image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ""}
         />
       ))}
     </div>

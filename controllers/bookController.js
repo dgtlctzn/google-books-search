@@ -24,7 +24,7 @@ router.post("/api/books", (req, res) => {
       authors: authors,
       description: description,
       image: imageLinks.thumbnail,
-      link: infoLink,
+      canonicalVolumeLink: infoLink,
     })
       .then((postedBook) => {
         console.log("success");
@@ -38,6 +38,20 @@ router.post("/api/books", (req, res) => {
         });
       });
   });
+});
+
+router.get("/api/books", (req, res) => {
+  db.Books.find()
+    .then((books) => {
+      res.status(200).json(books);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "failed to get books",
+      });
+    });
 });
 
 module.exports = router;
