@@ -7,6 +7,7 @@ const Card = ({
   description,
   authors,
   canonicalVolumeLink,
+  handleSaveButton,
 }) => {
   const combineAuthors = (author) => {
     if (author.length === 1) {
@@ -44,7 +45,15 @@ const Card = ({
               View
             </button>
           </a>
-          <button className="waves-effect waves-light btn-small right">
+          <button
+            imagelinks={imageLinks ? imageLinks.thumbnail : ""}
+            title={title}
+            description={description}
+            authors={authors}
+            canonicalvolumelink={canonicalVolumeLink}
+            onClick={handleSaveButton}
+            className="waves-effect waves-light btn-small right"
+          >
             Save
           </button>
         </div>
