@@ -1,34 +1,67 @@
 import React from "react";
+import "./Card.css";
 
-const Card = ({ imageLinks, title, description, authors, canonicalVolumeLink }) => {
-    // console.log(imageLinks);
-    // let image;
-    // if (!imageLinks) {
-    //     image = "https://images.pexels.com/photos/762687/pexels-photo-762687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
-    // } else {
-    //     image = imageLinks.thumbnail;
-    // }
+const Card = ({
+  imageLinks,
+  title,
+  description,
+  authors,
+  canonicalVolumeLink,
+}) => {
+  const combineAuthors = (author) => {
+    if (author.length === 1) {
+      return author[0];
+    } else {
+      return author.join(", ");
+    }
+  };
+
+  //   const shortDescription = (text) => {
+  //     let end = "";
+  //     if (text.length > 600) {
+  //         end = "..."
+  //     }
+  //     const shortText = text.substring(0, 600);
+  //     return shortText + end;
+  //   }
+
+  //   const remaining = (text) => {
+  //     if (text.length > 600) {
+  //         return text.substring(600, text.length -1)
+  //     }
+  //   }
+
   return (
-    <>
+    <div className="card-content">
       <div className="row">
-        <div className="col m12">
+        <div className="col m9">
           <h3>{title}</h3>
-          <h5>{authors}</h5>
+          <h5>{combineAuthors(authors)}</h5>
+        </div>
+        <div className="col m3">
           <a href={canonicalVolumeLink}>
-            <button className="waves-effect waves-light btn-small">View</button>
+            <button className="waves-effect waves-light btn-small right">
+              View
+            </button>
           </a>
-          <button className="waves-effect waves-light btn-small">Save</button>
+          <button className="waves-effect waves-light btn-small right">
+            Save
+          </button>
         </div>
       </div>
       <div className="row">
         <div className="col m3">
-        {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
+          {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
         </div>
         <div className="col m9">
-          <p>{description}</p>
+          {description ? (
+            <p>{description}</p>
+          ) : (
+            <p>No description found ¯\_(ツ)_/¯</p>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
