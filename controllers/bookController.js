@@ -5,20 +5,29 @@ const db = require("../models");
 
 router.post("/api/books", (req, res) => {
   console.log(req.body.link);
+  // api link sent from front end to make axios call for single book
   axios({
     method: "GET",
     url: req.body.link,
-  }).then(({ data }) => {
-    // console.log(data);
+  }).then((response) => {
+    // desctructuring of axios response
+    const {
+      title,
+      authors,
+      description,
+      imageLinks,
+      infoLink,
+    } = response.data.volumeInfo;
+    // mongo db add book
     db.Books.create({
-      title: data.volumeInfo.title,
-      authors: data.volumeInfo.authors,
-      description: data.volumeInfo.description,
-      image: data.volumeInfo.imageLinks.thumbnail,
-      link: data.volumeInfo.infoLink,
+      title: title,
+      authors: authors,
+      description: description,
+      image: imageLinks.thumbnail,
+      link: infoLink,
     })
       .then((postedBook) => {
-          console.log("success")
+        console.log("success");
         res.status(200).json(postedBook);
       })
       .catch((err) => {
