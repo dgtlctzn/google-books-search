@@ -2,7 +2,7 @@ import React from "react";
 import "./Card.css";
 
 const Card = ({
-    value,
+  value,
   imageLinks,
   title,
   description,
@@ -11,10 +11,14 @@ const Card = ({
   handleSaveButton,
 }) => {
   const combineAuthors = (author) => {
-    if (author.length === 1) {
-      return author[0];
+    if (author) {
+      if (author.length === 1) {
+        return author[0];
+      } else if (author.length > 1) {
+        return author.join(", ");
+      }
     } else {
-      return author.join(", ");
+      return "no author";
     }
   };
 
@@ -47,7 +51,7 @@ const Card = ({
             </button>
           </a>
           <button
-          title={title}
+            title={title}
             value={value}
             onClick={handleSaveButton}
             className="waves-effect waves-light btn-small right"
