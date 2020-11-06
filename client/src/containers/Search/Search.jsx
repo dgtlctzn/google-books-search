@@ -26,8 +26,15 @@ const Search = () => {
   };
 
   const handleSaveButton = (e) => {
-    // const { imageLinks, title, description, authors } = e.target;
-    console.log(e.target);
+    const { imagelinks, title, description, authors, canonicalvolumelink } = e.target;
+
+    API.postBook(title)
+      .then((response) => {
+        console.log("succesfully posted");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // console.log(id.authors);
   };
 

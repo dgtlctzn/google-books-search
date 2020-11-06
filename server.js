@@ -11,6 +11,8 @@ app.use(express.json());
 
 app.use(express.static("client/build"));
 
+const bookController = require("./controllers/bookController")
+
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/google_booksDB",
   {
@@ -30,6 +32,8 @@ connection.on("connected", () => {
 connection.on("error", (err) => {
   console.log("mongoose error: " + err);
 });
+
+app.use(bookController);
 
 app.get("/api/config", (req, res) => {
   res.json({
