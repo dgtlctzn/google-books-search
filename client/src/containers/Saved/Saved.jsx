@@ -17,7 +17,7 @@ const Saved = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {savedBooks.map((book) => (
         <Card key={book._id} image={book.image} {...book} />
       ))}

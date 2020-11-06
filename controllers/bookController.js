@@ -11,6 +11,7 @@ router.post("/api/books", (req, res) => {
     url: req.body.link,
   }).then((response) => {
     // desctructuring of axios response
+    // console.log(response.data.volumeInfo)
     const {
       title,
       authors,
@@ -22,7 +23,8 @@ router.post("/api/books", (req, res) => {
     db.Books.create({
       title: title,
       authors: authors,
-      description: description,
+      // regex removes html tags present in google books api description
+      description: description.replace(/<.*?>/g, ""),
       image: imageLinks.thumbnail,
       canonicalVolumeLink: infoLink,
     })

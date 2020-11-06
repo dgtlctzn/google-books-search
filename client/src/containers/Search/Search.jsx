@@ -18,6 +18,7 @@ const Search = () => {
       .then(({ data }) => {
         console.log(data);
         const topTen = data.items.filter((book, index) => index < 10);
+        console.log(topTen)
         setBooks(topTen);
       })
       .catch((err) => {
