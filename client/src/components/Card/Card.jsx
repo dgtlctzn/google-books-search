@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.css";
 
 const Card = ({
+    value,
   imageLinks,
   title,
   description,
@@ -46,11 +47,8 @@ const Card = ({
             </button>
           </a>
           <button
-            imagelinks={imageLinks ? imageLinks.thumbnail : ""}
-            title={title}
-            description={description}
-            authors={authors}
-            canonicalvolumelink={canonicalVolumeLink}
+          title={title}
+            value={value}
             onClick={handleSaveButton}
             className="waves-effect waves-light btn-small right"
           >

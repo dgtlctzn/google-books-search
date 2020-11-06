@@ -26,11 +26,9 @@ const Search = () => {
   };
 
   const handleSaveButton = (e) => {
-    const { imagelinks, title, description, authors, canonicalvolumelink } = e.target;
-
-    API.postBook(title)
+    API.postBook(e.target.value)
       .then((response) => {
-        console.log("succesfully posted");
+        console.log("success")
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +45,7 @@ const Search = () => {
       />
       {books.map((book) => (
         <Card
-          key={book.id}
+          key={book.id} value={book.selfLink}
           {...book.volumeInfo}
           handleSaveButton={handleSaveButton}
         />
