@@ -13,12 +13,12 @@ const Card = ({
   const combineAuthors = (author) => {
     if (author) {
       if (author.length === 1) {
-        return author[0];
+        return "By " + author[0];
       } else if (author.length > 1) {
-        return author.join(", ");
+        return "By " + author.join(", ");
       }
     } else {
-      return "no author";
+      return "author unknown";
     }
   };
 
@@ -40,13 +40,13 @@ const Card = ({
   return (
     <div className="card-content">
       <div className="row">
-        <div className="col m9">
+        <div className="col s6">
           <h3>{title}</h3>
           <h5>{combineAuthors(authors)}</h5>
         </div>
-        <div className="col m3">
+        <div className="col s6">
           <a href={canonicalVolumeLink}>
-            <button className="waves-effect waves-light btn-small right">
+            <button className="waves-effect waves-light btn-small right card-button">
               View
             </button>
           </a>
@@ -54,18 +54,18 @@ const Card = ({
             title={title}
             value={value}
             onClick={handleSaveButton}
-            className="waves-effect waves-light btn-small right"
+            className="waves-effect waves-light btn-small right card-button"
           >
             Save
           </button>
         </div>
       </div>
       <div className="row">
-        <div className="col m3">
+        <div className="col s12 m3">
           {/* {image && <img src={image} alt={title} />} */}
-          <img src={image} alt={title}/>
+          <img className="center" src={image} alt={title}/>
         </div>
-        <div className="col m9">
+        <div className="col s12 m9">
           {description ? (
             <p>{description}</p>
           ) : (
