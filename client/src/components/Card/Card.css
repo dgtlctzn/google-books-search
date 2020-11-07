@@ -1,9 +1,10 @@
 .card-content {
-    border-style: solid;
+    /* border-style: solid; */
     border-radius: 15px;
-    border-width: 1px;
+    /* border-width: 1px; */
     padding: 0 30px 0 30px;
     margin: 20px;
+    background-color: white;
 }
 
 .card-button {

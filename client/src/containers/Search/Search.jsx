@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import API from "../../utils/API";
 import Card from "../../components/Card/Card";
+import "./Search.css"
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -37,20 +38,22 @@ const Search = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <SearchForm
         input={search}
         handleInput={handleInput}
         handleSubmit={handleSubmit}
       />
+      <div className="container">
       {books.map((book) => (
         <Card
           key={book.id} value={book.selfLink}
           {...book.volumeInfo}
           handleSaveButton={handleSaveButton}
-          image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ""}
+          image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "./img/pexels-cottonbro-4690297.jpg"}
         />
       ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.search-button {
+    border: none;
+}
+
+i {
+    margin-left: 20px;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.search-bar {
+    background-color: white;
+} 
+

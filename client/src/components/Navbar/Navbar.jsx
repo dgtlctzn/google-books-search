@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav>
-      <div className="nav-wrapper">
-        <Link to="/" className="brand-logo center">
+      <div className="nav-wrapper teal darken-1">
+        <Link to="/" className="brand-logo center hide-on-med-and-down">
           Google Books Search
         </Link>
-        <ul id="nav-mobile" className="left hide-on-med-and-down">
+        <ul id="nav-mobile" className="left">
           <li>
             <Link to="/">Search</Link>
           </li>
