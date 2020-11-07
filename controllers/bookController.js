@@ -56,4 +56,18 @@ router.get("/api/books", (req, res) => {
     });
 });
 
+router.put("/api/books/:id", (req, res) => {
+  db.Books.findByIdAndDelete(req.params.id)
+    .then((books) => {
+      res.status(200).json(books);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "failed to delete book",
+      });
+    });
+});
+
 module.exports = router;

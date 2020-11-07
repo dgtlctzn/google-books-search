@@ -21,5 +21,11 @@ export default {
       method: "GET",
       url: "/api/books",
     })
+  },
+  deleteBook: function (id) {
+    return axios({
+      method: "PUT",
+      url: `/api/books/${id}`,
+    })
   }
 };

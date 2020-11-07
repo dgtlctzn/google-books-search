@@ -9,6 +9,7 @@ const Card = ({
   authors,
   canonicalVolumeLink,
   handleSaveButton,
+  handleDelete
 }) => {
   const combineAuthors = (author) => {
     if (author) {
@@ -22,21 +23,6 @@ const Card = ({
     }
   };
 
-  //   const shortDescription = (text) => {
-  //     let end = "";
-  //     if (text.length > 600) {
-  //         end = "..."
-  //     }
-  //     const shortText = text.substring(0, 600);
-  //     return shortText + end;
-  //   }
-
-  //   const remaining = (text) => {
-  //     if (text.length > 600) {
-  //         return text.substring(600, text.length -1)
-  //     }
-  //   }
-
   return (
     <div className="card-content">
       <div className="row">
@@ -45,6 +31,7 @@ const Card = ({
           <h5>{combineAuthors(authors)}</h5>
         </div>
         <div className="col s6">
+          {handleSaveButton ? (<>
           <a href={canonicalVolumeLink}>
             <button className="waves-effect waves-light btn-small right card-button">
               View
@@ -58,6 +45,16 @@ const Card = ({
           >
             Save
           </button>
+          </>) : (
+          <button
+            title={title}
+            value={value}
+            onClick={handleDelete}
+            className="waves-effect waves-light btn-small right card-button"
+          >
+            x
+          </button>)
+}
         </div>
       </div>
       <div className="row">
