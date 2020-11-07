@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {useHistory} from "react-router-dom";
 import API from "../../utils/API";
 import Card from "../../components/Card/Card";
 
+
 const Saved = () => {
+  
   const [savedBooks, setSavedBooks] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     API.getSavedBooks()
@@ -17,8 +21,9 @@ const Saved = () => {
   }, []);
 
   const handleDelete = (e) => {
-    API.deleteBook(e.target.value).then(() => {
-      console.log("book deleted")
+    API.deleteBook(e.target.value).then((data) => {
+      console.log(data);
+      history.push("/saved");
     }).catch(err => {
       console.log(err);
     })
