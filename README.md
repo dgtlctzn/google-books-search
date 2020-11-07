@@ -13,7 +13,7 @@
   * [License](#license)
 
   ## Description
-  This project ia a MERN stack website based around the Google books API. On the main page a user can search books by title and the results are displayed on the page. The user us presented with two options to either save or view books. The save option sends the book information to the server where it is stored in a Mongo database. The view option links the user to the google books page for that particular book. The saved books page pulls all the books saved in the database and renders them on the screen. React router is used to link these two pages. In addition to the graphicall display a api access point is available to retrieve the book data in JSON format.
+  This project ia a MERN stack website based around the Google books API. On the main page a user can search books by title and the results are displayed on the page. The user is presented with two options to either save or view books. The save option sends the book information to the server where it is stored in a Mongo database. The view option links the user to the google books page for that particular book. The saved books page pulls all the books saved in the database and renders them on the screen. React router is used to link these two pages. In addition to the graphical display an API access point is available to retrieve the book data in JSON format.
   ## Installation
   ```npm i``` will install all the necessary dependencies from the package.json.
   ## Usage
@@ -29,8 +29,7 @@
       "description": "description of book",
       "image": "thumbnail image link",
       "canonicalVolumeLink": "link to google book page",
-    },
-    ...
+    }
   ]
 
   ```
@@ -38,7 +37,7 @@
   
   [Google Book Search](https://joseph-books-search.herokuapp.com/)
   ## Contributing
-  The front/back in is built on a MERN stack. React Router enabled route navigation and Axios enabled API calls. Special thanks to the Google Books API and the materialize css framework.
+  The front/back end is built on a MERN stack. React Router enables route navigation and Axios enables API calls. Special thanks to the Google Books API and the Materialize css framework.
   ## Tests
   N/A
   ## Questions
