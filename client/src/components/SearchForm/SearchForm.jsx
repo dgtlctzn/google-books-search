@@ -3,13 +3,11 @@ import "./SearchForm.css"
 
 const SearchForm = ({ input, handleInput, handleSubmit }) => {
   return (
-    <div className="row search-bar">
+    <div className="row search-bar teal lighten-5">
       <div className="col s12 center">
-        {/* <h2>Search Books</h2> */}
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div id="search-input" className="input-field col s12 offset-xl2 xl8">
-              {/* <i className="material-icons prefix">library_books</i> */}
+            <div id="search-input" className="input-field col s10 offset-xl3 xl6">
               <input
                 id="library_books"
                 type="text"
