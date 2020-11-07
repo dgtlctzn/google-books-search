@@ -23,7 +23,17 @@ const Saved = () => {
   const handleDelete = (e) => {
     API.deleteBook(e.target.value).then((data) => {
       console.log(data);
-      history.push("/saved");
+      // Why does the history.push line not work??? 
+      // history.push("/saved");
+      API.getSavedBooks()
+      .then((response) => {
+          console.log(response.data)
+        setSavedBooks(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     }).catch(err => {
       console.log(err);
     })
